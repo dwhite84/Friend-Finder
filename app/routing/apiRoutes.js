@@ -21,7 +21,7 @@ app.post("/api/friends", function(req, res) {
 	}
 
 	// Calculating totals 
-	
+
 	for (var i = 0; i < friends.length; i++) {
 		total = 0;
 

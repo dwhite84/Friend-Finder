@@ -39,7 +39,7 @@
 
                 <h3 id="question2"><b>Question 2</b></h3>
                 <h4>Chelsea FC is best soccer team in world.</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q2" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -49,7 +49,7 @@
 
                 <h3 id="question3"><b>Question 3</b></h3>
                 <h4>Twizzlers are better than Red Vines.</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q3" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -59,7 +59,7 @@
 
                 <h3 id="question4"><b>Question 4</b></h3>
                 <h4>Purple is a relaxing color</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q4" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -69,7 +69,7 @@
 
                 <h3 id="question5"><b>Question 5</b></h3>
                 <h4>Dr.Pepper is the best soda to drink</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q5" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -79,7 +79,7 @@
 
                 <h3 id="question6"><b>Question 6</b></h3>
                 <h4>Pasta is healthy for you</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q6" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -89,7 +89,7 @@
 
                 <h3 id="question7"><b>Question 7</b></h3>
                 <h4>Bacon is candy</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q7" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -99,7 +99,7 @@
 
                 <h3 id="question8"><b>Question 8</b></h3>
                 <h4>Johnny Manziel is a good QB</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q8" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -109,7 +109,7 @@
 
                 <h3 id="question9"><b>Question 9</b></h3>
                 <h4>Browns will make it tothe playoffs</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q9" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -119,7 +119,7 @@
 
                 <h3 id="question10"><b>Question 10</b></h3>
                 <h4>Coding is hard</h4>
-                <select class="selectpicker" id="q1" title="Choose one of the following...">
+                <select class="selectpicker" id="q10" title="Choose one of the following...">
                     <option value="1">1 </option>
                     <option value="2">2 </option>
                     <option value="3">3 </option>
@@ -128,39 +128,31 @@
                 </select>
                 <br>
                 <br>
-
                 <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"></i>  Submit</button>
-
-                <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Closest Friend Match</h4>
-                            <div class="divider"></div>
-                            <h5 id="userMatch"></h5>
-                            <img id="userMatchImage" class="materialboxed" width="650" src="">
-                        </div>
-                        <div class="modal-footer">
-                            <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
-                        </div>
-                    </div>
+                <br>
+                <a href="/api/friends" > API friends list</a>
+                <br>
+                <a href="https://github.com/dwhite84/Friend-Finder">Github Repo</a>
+         
 </body>
 <script>
     $("#submit").on('click', function(event) {
 			event.preventDefault();
 			// Gather user inputs
 			var userInput = {
-				name: $("#mainInput").val().trim(),
-				photo: $("#photo").val().trim(),
+				name: $("#name").val().trim(),
+				photo: $("#image").val().trim(),
 				scores:[
-					$('#question1').val().trim(),
-					$('#question2').val().trim(),
-					$('#question3').val().trim(),
-					$('#question4').val().trim(),
-					$('#question5').val().trim(),
-					$('#question6').val().trim(),
-					$('#question7').val().trim(),
-					$('#question8').val().trim(),
-					$('#question9').val().trim(),
-					$('#question10').val().trim()
+					$('#q1').val().trim(),
+					$('#q2').val().trim(),
+					$('#q3').val().trim(),
+					$('#q4').val().trim(),
+					$('#q5').val().trim(),
+					$('#q6').val().trim(),
+					$('#q7').val().trim(),
+					$('#q8').val().trim(),
+					$('#q9').val().trim(),
+					$('#q10').val().trim()
 				]
 			};
 	
@@ -168,10 +160,10 @@
                 console.log(data);
                 alert("Adding data...");
 
-            $('#userMatch').html(data.matchName);
-		    	$("#userMatchImage").attr("src", data.matchImage);
-		    	// Pop open the modal dialog
-      			$('#modal1').modal('open');
+            // $('#userMatch').html(data.matchName);
+		    // 	$("#userMatchImage").attr("src", data.matchImage);
+		    // 	// Pop open the modal dialog
+      		// 	$('#modal1').modal('open');
         });
       		
 		});
