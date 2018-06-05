@@ -7,6 +7,7 @@ module.exports = function(app){
 
 // Create New Characters - takes in JSON input
 app.post("/api/friends", function(req, res) {
+	console.log(friends)
     var newFriend = req.body;
     
     var newScore = 0;
@@ -20,11 +21,12 @@ app.post("/api/friends", function(req, res) {
 	}
 
 	// Calculating totals 
+	
 	for (var i = 0; i < friends.length; i++) {
 		total = 0;
 
-		for (var j = 0; j < friends[i].preferences.length; j++) {
-			total += Math.abs(friends[i].preferences[j] - newFriend.preferences[j]);
+		for (var j = 0; j < friends[i].scores.length; j++) {
+			total += Math.abs(parseInt(friends[i].scores[j]) - parseInt(newFriend.scores[j]));
 
 			if (total <= match.difference) {
 				match.name = friends[i].name,
